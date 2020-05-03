@@ -6,10 +6,9 @@ import pl.komorowskidev.solutionsbackend.beans.ProblemDto;
 import pl.komorowskidev.solutionsbackend.exceptions.DataNotValidException;
 import pl.komorowskidev.solutionsbackend.problems.Problem;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
+import java.util.TreeMap;
 
 @Service
 @Slf4j
@@ -18,7 +17,7 @@ public class SolutionService {
     private Map<String, Problem> problemMap;
 
     public SolutionService() {
-        problemMap = new HashMap<>();
+        problemMap = new TreeMap<>();
     }
 
     public void addProblem(Problem problem){
