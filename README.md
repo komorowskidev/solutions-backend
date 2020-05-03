@@ -3,7 +3,10 @@
 
 This is my code I want to show you.
 It's a RESTful web service in Java.
-You can clone this project and set Gradle nature.
+
+### v1.1
+
+- added problem: Median
 
 ### v1.0
 
