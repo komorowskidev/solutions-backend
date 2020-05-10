@@ -34,6 +34,10 @@ It's consuming by Angular application deployed on Heroku:
 
 ---
 
+### v1.3
+
+- added problem: Dice Rolling
+
 ### v1.2
 
 - added problem: Blackjack Counting
