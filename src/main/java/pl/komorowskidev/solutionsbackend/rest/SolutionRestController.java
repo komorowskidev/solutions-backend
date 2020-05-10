@@ -1,6 +1,7 @@
 package pl.komorowskidev.solutionsbackend.rest;
 
 import org.springframework.boot.info.BuildProperties;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import pl.komorowskidev.solutionsbackend.services.SolutionService;
 import java.util.Set;
 
 @RestController
+@CrossOrigin
 public class SolutionRestController {
 
     private String appVersion;
