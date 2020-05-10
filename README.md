@@ -5,12 +5,12 @@ This is my code I want to show you.
 It's a RESTful web service in Java. 
 
 It's deployed on Heroku (you have to wait about 30 seconds if task is sleeping):
- 
-[https://solutions-backend.herokuapp.com](https://solutions-backend.herokuapp.com/version)
+
+<a href="https://solutions-backend.herokuapp.com/version" target="_blank">https://solutions-backend.herokuapp.com</a>
 
 It's consuming by Angular application deployed on Heroku:
 
-[https://solutions-frontend.herokuapp.com](https://solutions-frontend.herokuapp.com)
+<a href="https://solutions-frontend.herokuapp.com" target="_blank">https://solutions-frontend.herokuapp.com</a>
 
 ## REST API
 
