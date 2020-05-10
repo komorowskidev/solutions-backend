@@ -6,11 +6,11 @@ It's a RESTful web service in Java.
 
 It's deployed on Heroku (you have to wait about 30 seconds if task is sleeping):
 
-<a href="https://solutions-backend.herokuapp.com/version" target="_blank">https://solutions-backend.herokuapp.com</a>
+[https://solutions-backend.herokuapp.com/version] (https://solutions-backend.herokuapp.com/version)
 
 It's consuming by Angular application deployed on Heroku:
 
-<a href="https://solutions-frontend.herokuapp.com" target="_blank">https://solutions-frontend.herokuapp.com</a>
+[https://solutions-frontend.herokuapp.com] (https://solutions-frontend.herokuapp.com)
 
 ## REST API
 
