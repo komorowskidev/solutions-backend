@@ -6,36 +6,67 @@ import pl.komorowskidev.solutionsbackend.beans.ProblemDto;
 import pl.komorowskidev.solutionsbackend.exceptions.DataNotValidException;
 import pl.komorowskidev.solutionsbackend.problems.Problem;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 @Slf4j
 public class SolutionService {
 
-    private Map<String, Problem> problemMap;
+    private final Map<Long, Problem> problemMap;
+
+    private AtomicLong problemId;
 
     public SolutionService() {
+        problemId = new AtomicLong();
         problemMap = new TreeMap<>();
     }
 
     public void addProblem(Problem problem){
-        problemMap.put(problem.getName(), problem);
+        problemMap.put(problemId.getAndIncrement(), problem);
     }
 
-    public Set<String> getProblemNameSet() {
-        return problemMap.keySet();
+    public List<Map<String, Object>> getProblems(String[] fields) {
+        List<Map<String, Object>> result = new ArrayList<>();
+        if(fields.length > 0){
+            List<String> fieldList = Arrays.asList(fields);
+            Iterator<Map.Entry<Long, Problem>> iterator = problemMap.entrySet().iterator();
+            while(iterator.hasNext()){
+                Map.Entry<Long, Problem> entry = iterator.next();
+                Map<String, Object> fieldMap = getFieldMap(entry.getKey(), entry.getValue(), fieldList);
+                if(!fieldMap.isEmpty()){
+                    result.add(fieldMap);
+                }
+            }
+        }
+        return result;
     }
 
-    public ProblemDto getProblem(String problemName){
-        Problem problem = problemMap.get(problemName);
-        return problem == null ? new ProblemDto("", "") : new ProblemDto(problem.getDescription(), problem.getExampleData());
+    private Map<String, Object> getFieldMap(Long key, Problem value, List<String> fieldList) {
+        Map<String, Object> fieldMap = new HashMap<>();
+        if(fieldList.contains("id")){
+            fieldMap.put("id", key);
+        }
+        if(fieldList.contains("name")){
+            fieldMap.put("name", value.getName());
+        }
+        if(fieldList.contains("description")){
+            fieldMap.put("description", value.getDescription());
+        }
+        if(fieldList.contains("example")){
+            fieldMap.put("example", value.getExampleData());
+        }
+        return fieldMap;
     }
 
-    public String getSolution(String problemName, String data){
+    public ProblemDto getProblem(Long id){
+        Problem problem = problemMap.get(id);
+        return problem == null ? new ProblemDto(id,"", "", "") : new ProblemDto(id, problem.getName(), problem.getDescription(), problem.getExampleData());
+    }
+
+    public String getSolution(Long id, String data){
         String result = "";
-        Problem problem = problemMap.get(problemName);
+        Problem problem = problemMap.get(id);
         if(problem != null) {
             result = getSolution(problem, data);
         }
