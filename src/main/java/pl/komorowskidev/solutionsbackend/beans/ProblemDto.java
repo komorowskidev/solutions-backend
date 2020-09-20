@@ -7,6 +7,10 @@ import lombok.Data;
 @Data
 public class ProblemDto {
 
+    private Long id;
+
+    private String name;
+
     private String description;
 
     private String exampleData;

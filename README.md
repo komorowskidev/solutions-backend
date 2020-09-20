@@ -1,38 +1,95 @@
 # Solutions - backend in Java
->#### "Talk is cheap - show me the code."
 
-This is my code I want to show you.
-It's a RESTful web service in Java. 
+This application solves selected programming task for the given data.
+It's communicate by RESTful API.
 
-It's deployed on Heroku (you have to wait about 30 seconds if task is sleeping):
+It's deployed on Heroku (you have to wait about 20 seconds if task is sleeping):
 
-https://solutions-backend.herokuapp.com/version
+try me: https://solutions-backend.herokuapp.com/api/v1/version
 
-It's consuming by Angular application deployed on Heroku:
+I created it for use by my Angular application deployed on Heroku:
 
 https://solutions-frontend.herokuapp.com
 
-## REST API
+# REST API
 
-### request type: GET
+## Version
 
-* application version:
+returns application version
 
-`/version` 
+* URL:
 
-* set of problem names:
+`/api/v1/version`
 
-`/names`
+* method: 
 
-* problem's description and data example (param: name=[String]):
+`GET`
 
-`/problem?name=...`
+## Get Problem List
 
-* solution (param: name=[String], data=[String]):
+returns list of Problems with specified fields
 
-`/solution?name=...&data=...`
+* URL:
+
+`/api/v1/problems?fields=...`
+
+* method:
+
+`GET`
+
+* URL Params:
+
+Required:
+
+'fields=[string]'
+
+* Example:
+
+`/api/v1/problems?fields=id,name,description,example`
+
+## Get Problem
+
+returns JSON data about a single Problem
+
+`/api/v1/problems/:{id}`
+
+* method:
+
+`GET`
+
+* URL Params:
+
+Required:
+
+'id=[long]'
+
+## Get solution
+
+returns solution of specified problem
+
+`/api/v1/problems/:{id}`
+
+* method 
+
+'POST'
+
+* URL Params:
+
+Required:
+
+'id=[long]'
+
+* Data Params:
+
+Required:
+
+'data=[string]'
 
 ---
+
+### v1.4
+
+- new REST API
 
 ### v1.3
 
