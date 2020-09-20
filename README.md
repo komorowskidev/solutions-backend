@@ -41,7 +41,7 @@ returns list of Problems with specified fields
 
 Required:
 
-'fields=[string]'
+`fields=[string]`
 
 * Example:
 
@@ -61,7 +61,7 @@ returns JSON data about a single Problem
 
 Required:
 
-'id=[long]'
+`id=[long]`
 
 ## Get solution
 
@@ -71,19 +71,19 @@ returns solution of specified problem
 
 * method 
 
-'POST'
+`POST`
 
 * URL Params:
 
 Required:
 
-'id=[long]'
+`id=[long]`
 
 * Data Params:
 
 Required:
 
-'data=[string]'
+`data=[string]`
 
 ---
 
