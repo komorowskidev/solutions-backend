@@ -86,6 +86,9 @@ Required:
 `data=[string]`
 
 ---
+### v1.4.1
+
+- bugfixing: return solution as map
 
 ### v1.4
 

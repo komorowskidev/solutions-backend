@@ -12,9 +12,9 @@ import java.util.*;
 @RequestMapping("/api/v1")
 public class SolutionRestControllerV1 {
 
-    private String appVersion;
+    private final String appVersion;
 
-    private SolutionService solutionService;
+    private final SolutionService solutionService;
 
     public SolutionRestControllerV1(BuildProperties buildProperties, SolutionService solutionService) {
         appVersion = buildProperties.getVersion();
@@ -37,7 +37,7 @@ public class SolutionRestControllerV1 {
     }
 
     @PostMapping("/problems/:{id}")
-    public String getSolution(@PathVariable Long id, @RequestBody String data) {
+    public Map<String, Object> getSolution(@PathVariable Long id, @RequestBody String data) {
         return solutionService.getSolution(id, data);
     }
 
