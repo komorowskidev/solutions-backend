@@ -64,13 +64,15 @@ public class SolutionService {
         return problem == null ? new ProblemDto(id,"", "", "") : new ProblemDto(id, problem.getName(), problem.getDescription(), problem.getExampleData());
     }
 
-    public String getSolution(Long id, String data){
-        String result = "";
+    public Map<String, Object> getSolution(Long id, String data){
         Problem problem = problemMap.get(id);
+        String result = "";
         if(problem != null) {
             result = getSolution(problem, data);
         }
-        return result;
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("solution", result);
+        return resultMap;
     }
 
     private String getSolution(Problem problem, String data){
