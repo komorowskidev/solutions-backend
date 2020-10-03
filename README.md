@@ -1,7 +1,7 @@
 # Solutions - backend in Java
 
-This application solves selected programming task for the given data.
-It's communicate by RESTful API.
+This application solves selected programming tasks for the given data.
+It's communicated by RESTful API.
 
 It's deployed on Heroku (you have to wait about 20 seconds if task is sleeping):
 
